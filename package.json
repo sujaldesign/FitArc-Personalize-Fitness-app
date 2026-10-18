@@ -1,7 +1,7 @@
 {
   "name": "fitarc",
   "private": true,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -12,15 +12,15 @@
     "lucide-react": "0.468.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "react-router-dom": "6.30.6",
+    "react-router-dom": "7.18.4",
     "recharts": "2.14.1"
   },
   "devDependencies": {
     "@tailwindcss/vite": "4.3.3",
-    "@vitejs/plugin-react": "4.3.4",
+    "@vitejs/plugin-react": "6.1.2",
     "autoprefixer": "10.4.20",
     "postcss": "8.5.30",
     "tailwindcss": "4.3.3",
-    "vite": "5.4.21"
+    "vite": "8.3.4"
   }
 }
