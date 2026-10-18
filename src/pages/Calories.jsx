@@ -45,7 +45,7 @@ export default function Calories() {
     load();
   };
 
-  const today = new Date().toISOString().slice(0, 10);
+  const today = (() => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`; })();
   const todayLogs = logs.filter((l) => l.log_date === today);
   const totalCal = todayLogs.reduce((s, l) => s + (l.calories || 0), 0);
   const totalProtein = todayLogs.reduce((s, l) => s + (l.protein || 0), 0);
