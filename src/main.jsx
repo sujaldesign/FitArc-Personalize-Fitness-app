@@ -7,7 +7,7 @@ import "./index.css";
 const root = document.getElementById("root");
 
 if (!root) {
-  throw new Error('FitArc could not start: missing "#root" element in index.html.');
+  throw new Error('Fit Gen AI could not start: missing "#root" element in index.html.');
 }
 
 createRoot(root).render(
