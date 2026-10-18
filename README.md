@@ -1,6 +1,6 @@
-# FitArc — Personal Fitness Tracker
+# Fit Gen AI — AI Fitness & Wellness Tracker
 
-FitArc is a responsive React dashboard for tracking nutrition, workouts, health metrics, sleep and recovery.
+Fit Gen AI is a responsive React dashboard for tracking nutrition, workouts, health metrics, sleep and recovery.
 
 ## Features
 
