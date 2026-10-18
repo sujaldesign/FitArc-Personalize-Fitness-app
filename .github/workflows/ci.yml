@@ -5,7 +5,7 @@ on:
   pull_request:
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,14 +14,28 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
       - name: Install dependencies
-        run: npm ci
+        run: npm install --no-fund
+      - name: Apply compatible dependency security fixes
+        run: npm audit fix --no-fund || true
+      - name: Save regenerated dependency lockfile
+        run: |
+          if [ -n "$(git status --porcelain package-lock.json package.json)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add package-lock.json package.json
+            git commit -m "chore: refresh dependency lockfile"
+            git push
+          fi
       - name: Build production website
         run: npm run build
       - name: Generate dependency audit report
         if: always()
-        run: npm audit --json > npm-audit-report.json || true
+        run: |
+          npm audit --json > npm-audit-report.json || true
+          node -e "const a=require('./npm-audit-report.json'); console.log('Dependency audit summary:', JSON.stringify(a.metadata?.vulnerabilities || {})); for (const [name,v] of Object.entries(a.vulnerabilities || {})) console.log(name + ': ' + v.severity + ', fix=' + JSON.stringify(v.fixAvailable));"
+      - name: Enforce clean dependency audit
+        run: npm audit
       - name: Upload dependency audit report
         if: always()
         uses: actions/upload-artifact@v4
