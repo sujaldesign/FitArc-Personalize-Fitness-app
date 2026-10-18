@@ -46,11 +46,11 @@ export default function App() {
   return (
     <div className="app-shell min-h-screen">
       <aside className="sidebar">
-        <NavLink to="/" className="brand" aria-label="FitArc home" onClick={() => setMenuOpen(false)}>
+        <NavLink to="/" className="brand" aria-label="Fit Gen AI home" onClick={() => setMenuOpen(false)}>
           <span className="brand-mark"><Activity className="h-6 w-6" /></span>
           <span>
-            <span className="block text-xl font-bold tracking-tight">FitArc</span>
-            <span className="block text-[11px] font-medium tracking-[0.16em] text-slate-400">FITNESS OS</span>
+            <span className="block text-xl font-bold tracking-tight">Fit Gen AI</span>
+            <span className="block text-[11px] font-medium tracking-[0.16em] text-slate-400">AI FITNESS OS</span>
           </span>
         </NavLink>
         <div className="mt-9 px-3 text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">Workspace</div>
@@ -91,7 +91,7 @@ export default function App() {
             <Route path="/recovery" element={<Recovery />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
-          <footer className="mt-10 border-t border-slate-200/80 pt-5 text-xs text-slate-400">FitArc · Track. Improve. Thrive. <span className="mx-1">•</span> Personal wellness tracker</footer>
+          <footer className="mt-10 border-t border-slate-200/80 pt-5 text-xs text-slate-400">Fit Gen AI · Track. Improve. Thrive. <span className="mx-1">•</span> Personal wellness tracker</footer>
         </div>
       </main>
     </div>
