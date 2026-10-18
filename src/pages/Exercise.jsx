@@ -65,7 +65,7 @@ export default function Exercise() {
     load();
   };
 
-  const today = new Date().toISOString().slice(0, 10);
+  const today = (() => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`; })();
   const todayLogs = logs.filter((l) => l.log_date === today);
   const totalMin = todayLogs.reduce((s, l) => s + (l.duration || 0), 0);
   const totalBurn = todayLogs.reduce((s, l) => s + (l.calories_burned || 0), 0);
